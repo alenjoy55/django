@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
-<body style="background-color:rgb(6, 6, 6); text-align: center;color: white;">
-    <h2>Hello</h2>
+<body>
+    <!-- <h2>Hello</h2>
     <h3>Name :{{name}}</h3>
     <h3>Age :{{age}}</h3>
-    <h3>Place :{{place}}</h3>
+    <h3>Place :{{place}}</h3> -->
+    <img src="{% static '/images/colorful.avif' %}" alt="">
 
     <button><a href="snd" style="text-decoration: none;">Go to secondpage</a></button>
 
