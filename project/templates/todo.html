@@ -28,10 +28,13 @@
             <th>Actions</th>
         </tr>
         {% for i in todo %}
+        <tr>
         <td>{{i.Id}}</td>
         <td>{{i.Task}}</td>
         <td><a href="edit/{{i.id}}">Edit</a>
              <a href="delete/{{i.id}}">Delete</a></td>
+            </tr>
+             
         {% endfor %}
     </table>
 </div>

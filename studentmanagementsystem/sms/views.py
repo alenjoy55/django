@@ -6,6 +6,9 @@ def disp(req):
     data=student.objects.all()
     return render(req,'display_std.html',{'data':data})
 
+def add_std(req):
+    return render(req,'add_std.html')
+
 # def std_form(req):
 #     if req.method=='POST':
 #         id=req.POST['id']
