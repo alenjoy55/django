@@ -30,5 +30,9 @@ def edit_std(req,id):
         return redirect(disp)
     else:
         return render(req,'edit_std.html',{'data':data})
+def delete_std(req,id):
+    data=student.objects.get(pk=id)
+    data.delete()
+    return redirect(disp)
 
 

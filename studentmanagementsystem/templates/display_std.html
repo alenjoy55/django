@@ -10,7 +10,7 @@
 <body>
     <form action="add_std" method="post">
         {% csrf_token %}
-        <label for="id">roll_no</label>
+        <label for="id">roll_no</label><br>
         <input type="number" class="input" placeholder="roll_no" name="roll_no"><br>
         <label for="id">Name</label><br>
         <input type="text" class="input" placeholder="Enter your Name" name="name"><br>
@@ -41,7 +41,7 @@
         <td>{{std.pho}}</td>
         <td>
             <a href="edit_std/{{std.pk}}">Edit</a>
-            <a href="">Delete</a>
+            <a href="delete_std/{{std.pk}}">Delete</a>
         </td>
     </tr>
     {% endfor %}
