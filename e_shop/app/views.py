@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
+from .models import *
 
 # Create your views here.
 
@@ -25,6 +26,7 @@ def shop_logout(req):
     
 def shop_home(req):
     if 'shop' in req.session:
-        return render(req,'shop/shop.html')
+        product=Product.objects.all()
+        return render(req,'shop/shop_home.html',{'products':product})
     else:
         return render(shop_login)
