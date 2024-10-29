@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
 </head>
 <body>
-    <form action="">
+    <div class="login">
+    <form class="login-form" action="" method="post">
         {% csrf_token %}
-        uname<input type="text" name="uname">
-        password<input type="text" name="password">
-        <input type="submit" value="Login">
+        <label for="uname">USERNAME</label>
+        <input type="text" class="input" placeholder="uname" name="uname">
+        <label for="password">PASSWORD</label>
+        <input type="password" class="input" placeholder="password" name="password">
+        <input type="submit" class="btn" value="Login">
     </form>
+</div>
 </body>
 </html>
