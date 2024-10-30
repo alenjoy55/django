@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from .models import *
+import os
 
 # Create your views here.
 
@@ -30,3 +31,38 @@ def shop_home(req):
         return render(req,'shop/shop_home.html',{'products':product})
     else:
         return render(shop_login)
+
+def add_product(req):
+    if req.method=='POST':
+        id=req.POST['pro_id']
+        name=req.POST['name']
+        price=req.POST['price']
+        offer_price=req.POST['offer_price']
+        file=req.FILES['img']
+        data=Product.objects.create(product_id=id,name=name,price=price,offer_price=offer_price,img=file)
+        data.save()
+    return render(req,'shop/add_product.html')
+
+def edit_product(req,id):
+    Pro=Product.objects.get(pk=id)
+    if req.method=='POST':
+        e_id=req.POST['pro_id']
+        name=req.POST['name']
+        price=req.POST['price']
+        offer_price=req.POST['offer_price']
+        file=req.FILES.get['img']
+        print(file)
+        if file:
+            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,offer_price=offer_price,img=file)
+        else:
+            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,offer_price=offer_price,img=file)
+            return redirect(shop_home)
+    return render(req,'shop/edit_product.html')
+
+def delete_product(req,id):
+    data=Product.objects.get(pk=id)
+    url=data.img.url
+    url=url.split('/')[-1]
+    os.remove('media/'+url)
+    data.delete()
+    return redirect(shop_home)
