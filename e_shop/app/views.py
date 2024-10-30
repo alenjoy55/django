@@ -50,14 +50,14 @@ def edit_product(req,id):
         name=req.POST['name']
         price=req.POST['price']
         offer_price=req.POST['offer_price']
-        file=req.FILES.get['img']
+        file=req.FILES.get('img')
         print(file)
         if file:
             Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,offer_price=offer_price,img=file)
         else:
-            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,offer_price=offer_price,img=file)
+            Product.objects.filter(pk=id).update(product_id=e_id,name=name,price=price,offer_price=offer_price)
             return redirect(shop_home)
-    return render(req,'shop/edit_product.html')
+    return render(req,'shop/edit_product.html',{'data':Pro})
 
 def delete_product(req,id):
     data=Product.objects.get(pk=id)
