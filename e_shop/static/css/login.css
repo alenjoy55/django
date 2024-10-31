@@ -64,3 +64,14 @@ label {
 .btn:hover{
     background-color: palevioletred;
 }
+.btn1{
+    text-decoration: none;
+    background-color: #121212;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 107%;
+    cursor: pointer;
+    font-size: 14px; 
+}

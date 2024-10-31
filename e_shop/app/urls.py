@@ -5,6 +5,7 @@ from . import views
 urlpatterns=[
     path('',views.shop_login),
     path('logout',views.shop_logout),
+    path('register',views.register),
 
     #-------admin-------------
     path('shop_home',views.shop_home),
@@ -13,4 +14,5 @@ urlpatterns=[
     path('delete_product/<id>',views.delete_product),
 
     #------user---------------
+    path('user_home',views.user_home),
 ]

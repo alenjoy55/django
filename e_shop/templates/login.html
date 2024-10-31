@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="{% static '/css/login.css' %}">
 </head>
 <body>
+    <h2>Login</h2>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Danger!</strong>{{ message }}
+      </div>
+    {% endfor %}
+     {% endif %}
     <div class="login">
     <form class="login-form" action="" method="post">
         {% csrf_token %}
@@ -17,6 +26,7 @@
         <input type="password" class="input" placeholder="password" name="password">
         <input type="submit" class="btn" value="Login">
     </form>
+    <a href="register" class="btn1 btn-primary">Register</a>
 </div>
 </body>
 </html>
