@@ -28,7 +28,9 @@ def shop_login(req):
                     return redirect(user_home)
             else:
                 messages.warning(req, "invaild uname or password")
-        return render(req,'login.html')
+            return redirect(shop_login)
+        else:
+            return render(req,'login.html')
     
 def shop_logout(req):
     logout(req)
@@ -40,9 +42,14 @@ def register(req):
         name=req.POST['name']
         email=req.POST['email']
         password=req.POST['password']
-        data=User.objects.create_user(first_name=name,username=email,email=email,password=password)
-        data.save()
-        return redirect(shop_login)
+        try:
+            data=User.objects.create_user(first_name=name,username=email,email=email,password=password)
+            data.save()
+            return redirect(shop_login)
+        except:
+                messages.warning(req, "user already exists")
+                return redirect(register)
+
     else:
         return render(req,'register.html')
 
