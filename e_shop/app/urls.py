@@ -15,4 +15,7 @@ urlpatterns=[
 
     #------user---------------
     path('user_home',views.user_home),
+    path('view_product/<id>',views.view_product),
+    path('add_cart/<pid>',views.add_cart),
+    path('cart_display',views.cart_display),
 ]
