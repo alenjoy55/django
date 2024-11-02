@@ -13,8 +13,13 @@
         <div class="col-lg-5">
             <img src="{{product.img.url}}" style="width: 300px;height: 300px;" alt="">
     <div class="mt-5">
-        <a href="../add_cart/{{product.pk}}" class="btn btn-primary">Add_Cart</a>
         <a href="buy_now/{{product.pk}}" class="btn btn-primary">Buy_Now</a>
+        {% if cart %}
+        <a href="../cart_display" class="btn btn-primary">Go_Cart</a>
+        {% else %}
+        <a href="../add_cart/{{product.pk}}" class="btn btn-primary">Add_Cart</a>
+        {% endif %}
+       
     </div>
 </div>
     <div class="col-lg-7">
