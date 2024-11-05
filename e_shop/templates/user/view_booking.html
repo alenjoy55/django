@@ -10,14 +10,12 @@
 <body>
     <div class="container">
         <div class="row">
-            {% for cart_obj in data %}
+            {% for i in data %}
             <div class="col-lg-12">
-                <img src="{{cart_obj.product.img.url}}" alt="" style="width: 50%;height: 400px;">
-                {{cart_obj.product.name}}
-                {{cart_obj.product.price}}
-                {{cart_obj.product.offer_price}}
-                <a href="buy/{{cart_obj.product.pk}}" class="btn btn-primary">Buy</a>
-                <a href="delete_cart/{{cart_obj.pk}}" class="btn btn-primary">Delete</a>
+                <img src="{{i.product.img.url}}" alt="" style="width: 300px; height: 300px;">
+                <p>Name:{{i.product.name}}</p>
+                <p>price:{{i.price}}</p>
+                <p>Date:{{i.date}}</p>
             </div>
             {% endfor %}
         </div>
