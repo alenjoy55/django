@@ -96,6 +96,10 @@ def delete_product(req,id):
     os.remove('media/'+url)
     data.delete()
     return redirect(shop_home)
+def bookings(req):
+       bookings=Buy.objects.all()[::-1][:2]
+       print(bookings)
+       return render(req,'shop/bookings.html',{'data':bookings})
 #-----------------------user---------------------------
 def user_home(req):
     if 'user' in req.session:

@@ -12,6 +12,7 @@ urlpatterns=[
     path('add_product',views.add_product),
     path('edit_product/<id>',views.edit_product),
     path('delete_product/<id>',views.delete_product),
+    path('bookings',views.bookings),
 
     #------user---------------
     path('user_home',views.user_home),
