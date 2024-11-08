@@ -9,6 +9,8 @@ class Movie(models.Model):
     time_duration=models.TextField()
     category=models.TextField()
     date=models.DateField()
+    def __str__(self):
+        return self.movie_name
 
 class lang(models.Model):
     language=models.TextField()
@@ -16,3 +18,11 @@ class lang(models.Model):
 class movie_lang(models.Model):
     movie=models.ForeignKey(Movie,on_delete=models.CASCADE)
     lang=models.ForeignKey(lang,on_delete=models.CASCADE)
+
+class members(models.Model):
+    name=models.TextField()
+    img=models.FileField()
+    position=models.TextField()
+    cast=models.BooleanField(default=False)
+    crew=models.BooleanField(default=False)
+    movie=models.ForeignKey(Movie,on_delete=models.CASCADE)
